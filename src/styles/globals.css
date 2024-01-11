@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  background: rgba(254, 237, 188, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,12 +17,30 @@
   }
 }
 
+html,
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #feedbc;
 }
+
+.typing-container {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.1em solid #000;
+}
+.typing-text {
+  display: inline-block;
+  animation: typing 2s steps(14) infinite;
+}
+
+@keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+   
+
