@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Image1 from "../../assets/user.png";
+import API_ENDPOINT from "../api/register";
 
 interface Register {
   backgroundClass?: string;
@@ -8,24 +9,20 @@ interface Register {
 }
 
 const RegisterSection: React.FC<Register> = ({ backgroundClass, withSkew }) => {
-  // State to manage form input values and confirmation display
   const [username, setUsername] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  // Function to handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Create an object with user and phone data
     const formData = {
       username,
       phoneNumber,
     };
 
     try {
-      // Make an API request using fetch
-      const response = await fetch("your_api_endpoint_here", {
+      const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +73,7 @@ const RegisterSection: React.FC<Register> = ({ backgroundClass, withSkew }) => {
               onSubmit={handleSubmit}
               className="flex flex-col bg-gray-900 p-8 rounded-lg shadow-md"
             >
-              <label htmlFor="username" className="text-md mb-2">
+              <label htmlFor="username" className="text-md  text-white mb-2">
                 Username:
               </label>
               <input
@@ -86,7 +83,7 @@ const RegisterSection: React.FC<Register> = ({ backgroundClass, withSkew }) => {
                 onChange={(e) => setUsername(e.target.value)}
                 className="border text-black rounded-lg p-3 mb-4 focus:outline-none focus:ring focus:border-yellow"
               />
-              <label htmlFor="phoneNumber" className="text-md mb-2">
+              <label htmlFor="phoneNumber" className="text-md  text-white mb-2">
                 Phone Number:
               </label>
               <input

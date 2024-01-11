@@ -14,7 +14,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelect }) => {
   const handleSelectChange = (value: string) => {
     setSelectedCountry(value);
     setShowOptions(false);
-    onSelect?.(value); // Pass the selected value to the parent component
+    onSelect?.(value);
   };
 
   const countries = [
